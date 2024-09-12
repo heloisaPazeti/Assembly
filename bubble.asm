@@ -1,5 +1,5 @@
 		.data
-		.align 0
+		.align 2
 	
 nums: 	.word  7, 5, 2, 1, 1, 3, 4
 	
@@ -22,6 +22,15 @@ loop1:	bgt t1, t2, fimLoop1			# j >= i+1i
 
 		mul a2, a1, t3					# a2 = 4*(j-1)
 		add s3, s3, a2					# &s3 = &num[j-1]
+
+
+		addi a7, zero, 1	 			# printa nums[i]
+		mv a0, t1						# mv -> Move Value
+		ecall
+
+		addi a7, zero, 1	 			# printa nums[i]
+		mv a0, a2						# mv -> Move Value
+		ecall
 
 
 		lw s1, 0(s3)					# s1 = num[j-1]
