@@ -3,7 +3,7 @@
 	.data
 	.align 0
 str.src:.asciz	"Teste do stcpy"
-str.dst:.space  16
+str.dst:.space  16	# Reserva essa quantidade de bytes
 
 	.text
 	.align 2
