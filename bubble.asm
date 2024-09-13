@@ -31,24 +31,11 @@ loop1:	blt t1, t2, fimLoop1			# j < i+1
 		addi s3, s3, 4					# &s3 = &num[j]
 		lw s2, 0(s3)					# s2 = num[j]
 
-		#addi a7, zero, 1	 			# printa nums[i]
-		#mv a0, s2						# mv -> Move Value
-		#ecall
-
-
 		ble s1, s2, outIf				# s1 <= s2 -> out
 		
 		mv a0,s1						# a0 = nums[j-1]
 		mv s1, s2						# nums[j-1] = nums[j]
 		mv s2, a0 						# nums[j] = a0
-
-		#addi a7, zero, 1	 			
-		#mv a0, s1					
-		#ecall
-
-		#addi a7, zero, 1	 			
-		#mv a0, s2						
-		#ecall
 
 		sw s2, 0(s3) 					# &nums[j] = nums[j]
 		addi s3, s3, -4 
@@ -88,8 +75,8 @@ printLoop:
 		#add s3, s3, a2					# &s3 = &num[i]
 		#lw s2, 0(s3)					# s2 = num[i]
 		
-		li a7, 1	 			# printa nums[i]
-		lw a0, 0(s3)						# mv -> Move Value
+		li a7, 1	 					# printa nums[i]
+		lw a0, 0(s3)					# mv -> Move Value
 		ecall
 
 		addi a7, zero, 4	 			# printa espaço
