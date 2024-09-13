@@ -5,7 +5,8 @@ nums: 	.word  7, 5, 2, 1, 1, 3, 4
 
 		.align 0
 
-str.src:.asciz	"/////////////"
+str.src:.asciz	"//"
+str.dst:.asciz	"---"
 	
 		.text
 		.align 2
@@ -32,16 +33,32 @@ loop1:	bgt t1, t2, fimLoop1			# j > i+1
 		mv a0, t1						# mv -> Move Value
 		ecall
 
+		addi a7,zero,4	 #printf str de destino
+		la a0,str.dst
+		ecall
+
 		addi a7, zero, 1	 			# printa nums[i]
 		mv a0, t2						# mv -> Move Value
+		ecall
+
+		addi a7,zero,4	 #printf str de destino
+		la a0,str.dst
 		ecall
 
 		addi a7, zero, 1	 			# printa nums[i]
 		mv a0, t3						# mv -> Move Value
 		ecall
 
+		addi a7,zero,4	 #printf str de destino
+		la a0,str.dst
+		ecall
+
 		addi a7, zero, 1	 			# printa nums[i]
 		mv a0, a1						# mv -> Move Value
+		ecall
+
+		addi a7,zero,4	 #printf str de destino
+		la a0,str.dst
 		ecall
 
 		addi a7, zero, 1	 			# printa nums[i]
