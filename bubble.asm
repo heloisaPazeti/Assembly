@@ -2,6 +2,10 @@
 		.align 2
 	
 nums: 	.word  7, 5, 2, 1, 1, 3, 4
+
+		.align 0
+
+str.src:.asciz	"/////////////"
 	
 		.text
 		.align 2
@@ -13,7 +17,7 @@ main:	addi s0, zero, 7				# s0 = max = 7
 		addi t2, t0, 1					# t2 = t0 + 1 = i + 1
 
 
-loop1:	bgt t1, t2, fimLoop1			# j >= i+1i
+loop1:	bgt t1, t2, fimLoop1			# j > i+1
 
 		addi t3, t1, -1					# t3 = j-1
 
@@ -29,7 +33,23 @@ loop1:	bgt t1, t2, fimLoop1			# j >= i+1i
 		ecall
 
 		addi a7, zero, 1	 			# printa nums[i]
+		mv a0, t2						# mv -> Move Value
+		ecall
+
+		addi a7, zero, 1	 			# printa nums[i]
+		mv a0, t3						# mv -> Move Value
+		ecall
+
+		addi a7, zero, 1	 			# printa nums[i]
+		mv a0, a1						# mv -> Move Value
+		ecall
+
+		addi a7, zero, 1	 			# printa nums[i]
 		mv a0, a2						# mv -> Move Value
+		ecall
+
+		addi a7,zero,4	 #printf str de destino
+		la a0,str.src
 		ecall
 
 
@@ -43,7 +63,6 @@ loop1:	bgt t1, t2, fimLoop1			# j >= i+1i
 		add s1, zero, s2				# nums[j-1] = nums[j]
 		add s2, zero, a0 				# nums[j] = a0
 
-		
 		addi t1, t1, -1
 		j loop1
 
