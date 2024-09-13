@@ -71,10 +71,6 @@ printLoop:
 		bgt s1, s0, fimProg				# if(i >= 7) end
 		#addi a2, zero, 4
 
-		#mul a2, a1, s1					# a2 = 4*i
-		#add s3, s3, a2					# &s3 = &num[i]
-		#lw s2, 0(s3)					# s2 = num[i]
-		
 		li a7, 1	 					# printa nums[i]
 		lw a0, 0(s3)					# mv -> Move Value
 		ecall
